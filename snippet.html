@@ -1,0 +1,107 @@
+<link href="${resourcePath}/introjs.css" rel="stylesheet">
+<link href="${resourcePath}/introjs-mhcc2016.css" rel="stylesheet">
+<link href="${resourcePath}/mhcc2016_introjs_overlaystyles.css" rel="stylesheet">
+<script type="text/javascript" src="${resourcePath}/intro_accessible.js"></script>
+<script type="text/javascript">
+
+    //**** **** **** **** **** **** **** **** **** **** **** **** **** 
+    //**** HI ONLINE LEARNING STEP EDITORS, PLZ LOOK HERE ****
+    //**** **** **** **** **** **** **** **** **** **** **** **** **** 
+    //
+    //1) the text in the follow array is all you have to edit!
+    //2) yay!
+    //
+    var step_instructions = new Array();
+    step_instructions[0] = 'Name the assessment. This will become the column title in the grade center so keep it brief.';
+    step_instructions[1] = 'Add a description. For example: “Ten short answer questions covering chapter 2”';
+    step_instructions[2] = 'Show description. NOTE: Not the same thing as the content link description!';
+    step_instructions[3] = 'Usually better to open in a new window.';
+    step_instructions[4] = '“Unavailable” means test won’t show under any circumstances. “Available” allows release/availability conditions to take effect.';
+    step_instructions[5] = 'Posts basic message and sends notification.';
+    step_instructions[6] = 'If multiple attempts desired, set number.';
+    step_instructions[7] = 'Define which attempt will be used in course calculation.';
+    step_instructions[8] = 'Never recommended. Use Timer and Auto-Submit below.';
+    step_instructions[9] = 'Provide ample time for students. Practice taking the assessment so you have a clear understanding of testing experience';
+    step_instructions[10] = 'In conjunction with the timer, works like force submit with fewer problems. ';
+    step_instructions[11] = 'Set date and time test opens and closes to students. Keep in mind busy schedules, and consider including weekend days for your test. “End of Day” is midnight.';
+    step_instructions[12] = 'Determined by Online Learning. Check your email as this changes from term to term. Confirm pw is correct by taking the test. <br><br>NOTE: Not for exams using Respondus Lockdown Browser';
+	step_instructions[13] = 'Some students require date or attempt exceptions. Enter student and availability dates here.<br><br>Exceptions override universal settings.';
+	step_instructions[14] = 'Different from Availability, this is the due date that appears on the calendar and in the grade center. Set date and time exam will close.';
+	step_instructions[15] = 'This check box will apply excepted students. If test includes student availability exceptions, leave unchecked. ';
+	step_instructions[16] = 'Choose when various feedback options are available to students.<br><br><b>TIP</b>: If you want students to see the score immediately but not the correct answers, choose After Submission and score.';
+	step_instructions[17] = 'Choose Include if this is graded coursework. Choose Hide if it’s practice. ';
+	step_instructions[18] = 'Choose how the questions appear to students.<br><br>NOTE: This choice is assessment-dependent, for exams with fewer than 30 questions OL recommends <b>All at once</b> with <b>backtracking.</b>';
+	step_instructions[19] = 'Changes question order with each attempt so no two students get the same order. Works if a specific question order is not important to your exam.';
+    step_instructions[20] = 'When you\'re done, use the Submit button to save your changes.<br><br>Before you Submit, <a href="http://goo.gl/forms/MiSfY5UVJUKPAUHp2" target="_blank" style="text-decoration:underline">let us know if this onscreen help tour was useful</a>.';
+    //**** **** **** **** **** **** **** **** **** **** **** **** ****
+    //
+    //THAT'S ALL! UNLESS THE STEPS END UP IN THE WRONG PLACE!
+    //THEN YOU SHOULD DIVE INTO THE CODE BELOW!
+    //
+    //**** **** **** **** **** **** **** **** **** **** **** **** ****
+    
+    function setAttributes(el, attrs) {
+        for(var key in attrs) {
+            el.setAttribute(key, attrs[key]);
+        }
+    }
+    if (!document.getElementsByClassName) {
+        document.getElementsByClassName=function(cn) {
+            var allT=document.getElementsByTagName('*'), allCN=[], i=0, a;
+            while(a=allT[i++]) {
+                a.className==cn ? allCN[allCN.length]=a : null;
+            }
+            return allCN
+        }
+    }
+    
+    //init our IntroJS object
+    
+    var intro = introJs();
+    intro.setOptions({
+            showProgress: 'true'
+    });
+    
+    function start_intro()
+    {
+        //start the overlay
+        intro.start();
+    }
+    
+    Event.observe(document,"dom:loaded", function() {
+        
+        var helpbutton_location;
+        if (document.getElementById('helpPageTitle')) {
+            helpbutton_location='helpPageTitle';
+        } else {
+            helpbutton_location='pageTitleHeader';
+        }
+        document.getElementById(helpbutton_location).insertAdjacentHTML('beforeEnd','<br><a class="mhcc2016_overlay_orangebutton button-2" href="javascript:void(0);" onclick="javascript:start_intro();" style="font-size: large">Show me how this screen works</a>');
+        setAttributes(document.getElementById('name'), {'data-intro': step_instructions[0]});
+        setAttributes(document.getElementsByClassName('textboxtable')[0],{'data-intro': step_instructions[1]});
+        if(document.getElementById('showInstDescription'))
+        {
+            setAttributes(document.getElementById('showInstDescription'), {'data-intro': step_instructions[2]});
+        }
+        setAttributes(document.getElementById('launchInNewWindowLabel'), {'data-intro': step_instructions[3]});
+        setAttributes(document.getElementById('isLinkVisibleLabel'), {'data-intro': step_instructions[4]});
+        setAttributes(document.getElementById('createAnnouncementLabel'), {'data-intro': step_instructions[5]});
+        setAttributes(document.getElementById('createAnnouncementLabel').nextElementSibling, {'data-intro': step_instructions[6]});
+        setAttributes(document.getElementById('createAnnouncementLabel').parentNode.querySelectorAll('li').item(3), {'data-intro': step_instructions[7]});
+        setAttributes(document.getElementById('createAnnouncementLabel').parentNode.querySelectorAll('li').item(4), {'data-intro': step_instructions[8]});
+        setAttributes(document.getElementById('createAnnouncementLabel').parentNode.querySelectorAll('li').item(5), {'data-intro': step_instructions[9]});
+        setAttributes(document.getElementsByClassName('u_controlsWrapper u_indent').item(0), {'data-intro': step_instructions[10]});
+        setAttributes(document.getElementById('createAnnouncementLabel').parentNode.querySelectorAll('li').item(6), {'data-intro': step_instructions[11]});
+        setAttributes(document.getElementById('createAnnouncementLabel').parentNode.lastElementChild, {'data-intro': step_instructions[12]});
+        setAttributes(document.getElementById('step3'), {'data-intro': step_instructions[13]});
+        setAttributes(document.getElementById('step4'), {'data-intro': step_instructions[14]});
+        setAttributes(document.getElementById('doNotAllowLateSubmission').parentNode, {'data-intro': step_instructions[15]});
+        setAttributes(document.getElementById('stepcontent5'), {'data-intro': step_instructions[16]});
+        setAttributes(document.getElementById('step6'), {'data-intro': step_instructions[17]});
+        setAttributes(document.getElementById('fDeliveryType1').parentNode.parentNode, {'data-intro': step_instructions[18]});
+        setAttributes(document.getElementById('fRandomizeQuestionsIndicator').parentNode, {'data-intro': step_instructions[19]});
+        setAttributes(document.getElementsByName("bottom_Submit")[0], {'data-intro' : step_instructions[20], 'data-position' : 'left'});
+    
+    });
+</script>
+

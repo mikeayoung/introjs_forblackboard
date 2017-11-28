@@ -1,0 +1,40 @@
+<hackpackage>
+  <name>IntroJS Overlay: Test Options</name>
+  <identifier>introjs_overlay</identifier>
+  <description>Test Options help overlay using IntroJS</description>
+  <version>1.0</version>
+  <developerName>Mike Young</developerName>
+  <developerInstitution>Mt. Hood Community College</developerInstitution>
+  <developerURL>http://mhcc.edu</developerURL>
+  <developerEmail>mike.young@mhcc.edu</developerEmail>
+  <hook>tag.learningSystemPage.start</hook>
+  <restrictions>
+    <restriction>
+      <type>URL</type>
+      <value>.*/webapps/assessment/WEB-INF/jsp/content/modifyOptions.jsp</value>
+      <inverse>false</inverse>
+    </restriction>
+  </restrictions>
+  <resources>
+    <resource>
+      <path>mhcc2016_introjs_overlaystyles.css</path>
+      <mime>text/css</mime>
+      <embed>false</embed>
+    </resource>
+    <resource>
+      <path>intro_accessible.js</path>
+      <mime>text/javascript</mime>
+      <embed>false</embed>
+    </resource>
+    <resource>
+      <path>introjs.css</path>
+      <mime>text/css</mime>
+      <embed>false</embed>
+    </resource>
+    <resource>
+      <path>introjs-mhcc2016.css</path>
+      <mime>text/css</mime>
+      <embed>false</embed>
+    </resource>
+  </resources>
+</hackpackage>

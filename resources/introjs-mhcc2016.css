@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+.introjs-helperNumberLayer {
+	background: #ff8000; /* Old browsers */
+  	background: -webkit-linear-gradient(top, #feb46a 0%, #ff8000 100%); /* Chrome10+,Safari5.1+ */
+  	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #feb46a), color-stop(100%, #ff8000)); /* Chrome,Safari4+ */
+  	background:    -moz-linear-gradient(top, #feb46a 0%, #ff8000 100%); /* FF3.6+ */
+  	background:     -ms-linear-gradient(top, #feb46a 0%, #ff8000 100%); /* IE10+ */
+	background:      -o-linear-gradient(top, #feb46a 0%, #ff8000 100%); /* Opera 11.10+ */
+ 	background:         linear-gradient(to bottom, #feb46a 0%, #ff8000 100%);  /* W3C */
+  	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feb46a', endColorstr='#ff8000', GradientType=0); /* IE6-9 */
+  	filter: progid:DXImageTransform.Microsoft.Shadow(direction=135, strength=2, color=ff0000); /* IE10 text shadows */
+}
+
+.introjs-tooltip {
+  position: absolute;
+  visibility: visible;
+  padding: 10px;
+  background-color: white;
+  min-width: 300px;
+  max-width: 500px;
+  border-radius: 3px;
+  box-shadow: 0 1px 10px rgba(0,0,0,.4);
+  -webkit-transition: opacity 0.1s ease-out;
+     -moz-transition: opacity 0.1s ease-out;
+      -ms-transition: opacity 0.1s ease-out;
+       -o-transition: opacity 0.1s ease-out;
+          transition: opacity 0.1s ease-out;
+}
+
